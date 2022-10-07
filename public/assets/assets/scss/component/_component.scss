@@ -1,0 +1,128 @@
+
+.following-list {
+  .item {
+    padding: toRem(25) toRem(35);
+    border-bottom: toRem(1) solid $stroke;
+    @media screen and (max-width: 991px) {
+      padding: toRem(25);
+    }
+    @media screen and (max-width: 767px) {
+      padding: toRem(20);
+    }
+    @media screen and (max-width: 575px) {
+      padding: toRem(10);
+    }
+    &:first-child {
+      padding-top: 0;
+    }
+    .left {
+      display: flex;
+      align-items: center;
+      gap: toRem(20);
+      @media screen and (max-width: 767px) {
+        gap: toRem(10);
+      }
+      .img {
+        flex-shrink: 0;
+        width: toRem(50);
+        height: toRem(50);
+        border-radius: 50%;
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .name {
+        display: block;
+        @include fontFamily(20, $fw_medium, 30, $primary-dark-text);
+        @media screen and (max-width: 767px) {
+          font-size: toRem(18);
+        }
+      }
+      .info {
+        @include fontFamily(16, $fw_regular, 26, $para-text);
+      }
+    }
+  }
+}
+
+.photo-item {
+  position: relative;
+  .imgWrap {
+    border-radius: toRem(10);
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .premiumBtn {
+    position: absolute;
+    top: toRem(14);
+    left: toRem(14);
+    right: toRem(14);
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    gap: toRem(10);
+  }
+  .favoriteBoard {
+    position: absolute;
+    bottom: toRem(14);
+    left: toRem(14);
+    right: toRem(14);
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    gap: toRem(10);
+  }
+  .imgActionBtn {
+    width: toRem(58);
+    height: toRem(58);
+    border: none;
+    border-radius: toRem(10);
+    padding: 0;
+    background-color: $primary-dark-text-20;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media screen and (max-width: 991px) {
+      width: toRem(48);
+      height: toRem(48);
+    }
+    @media screen and (max-width: 575px) {
+      width: toRem(38);
+      height: toRem(38);
+    }
+    svg {
+      @media screen and (max-width: 575px) {
+        max-width: toRem(18);
+      }
+      path {
+        transition: all 0.3s;
+      }
+    }
+    &:hover,
+    &.active {
+      svg {
+        path {
+          fill: $red;
+        }
+      }
+    }
+    &.premiumBtn {
+      &:hover,
+      &.active {
+        svg {
+          path {
+            fill: $white-text;
+          }
+        }
+      }
+    }
+  }
+}
